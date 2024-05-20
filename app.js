@@ -18,7 +18,7 @@ connectDB();
 app.use(express.json());
 app.use(bodyParser.json());
 app.use(cors({
-  origin: 'http://localhost:3000',
+  origin: 'https://grs-frontend-nu.vercel.app/',
   credentials: true 
 }));
 
