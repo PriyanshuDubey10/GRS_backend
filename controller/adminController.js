@@ -1,5 +1,4 @@
 const jwt = require('jsonwebtoken');
-const bcrypt = require('bcrypt');
 const Admin = require('../model/admin');
 
 // Function to generate token
@@ -35,10 +34,6 @@ exports.adminl = async (req, res) => {
             throw new Error('admin not found');
         }
 
-        const isMatch = await bcrypt.compare(password, admin.password);
-        if (!isMatch) {
-            throw new Error('Invalid password');
-        }
 
         const token = generateToken(admin._id);
         

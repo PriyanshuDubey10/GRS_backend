@@ -1,5 +1,4 @@
 const jwt = require('jsonwebtoken');
-const bcrypt = require('bcrypt');
 const User = require('../model/user');
 
 // Function to generate token
@@ -35,10 +34,7 @@ exports.login = async (req, res) => {
             throw new Error('User not found');
         }
 
-        const isMatch = await bcrypt.compare(password, user.password);
-        if (!isMatch) {
-            throw new Error('Invalid password');
-        }
+      
 
         // Generate token
         const token = generateToken(user._id);
